@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 const Useritem = ({
     user: {
@@ -9,7 +9,6 @@ const Useritem = ({
         html_url
     }
 }) => {
-
     return (
         <div className="card text-center">
             <img src={avatar_url}
@@ -20,18 +19,19 @@ const Useritem = ({
             }></img>
             <h3>{login}</h3>
             <div>
-                <a href={html_url}
+                <Link to={
+                        `/user/${login}`
+                    }
                     className="btn btn-dark btn-sm my-1">
                     More
-                </a>
+                </Link>
             </div>
         </div>
     );
-
-}
+};
 
 Useritem.propTypes = {
     user: PropTypes.object.isRequired
-}
+};
 
 export default Useritem;
